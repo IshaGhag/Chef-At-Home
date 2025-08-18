@@ -1,0 +1,217 @@
+body {
+    font-family: poppins, sans-serif;
+    box-sizing: border-box;
+    background: rgba(211, 211, 211, 0.4);
+    background-image: url(bodyimg.jpg);
+}
+.logo{
+    height: 90px;
+    width: 45px;
+    border-radius: 50%;
+}
+.custom-navbar {
+    background-color: #93B1A6; /* Change this color to your desired color */
+    margin: 20px;
+}
+.container {
+    width: 100%;
+    margin: 0px;
+}
+.c-img{
+    object-fit: contain;
+}
+/* Nav Bar */
+
+nav {
+    height: 100px;
+    width: 100%;
+}
+
+.logo {
+    float: left;
+    width: 150px;
+    cursor: pointer;
+}
+
+.menu {
+    line-height: 3;
+}
+
+.menu-list {
+    list-style: none;
+    float: right;
+}
+
+.menu-item {
+    float: left;
+    padding: 20px;
+    margin: 0px;
+    cursor: pointer;
+    color: black;
+}
+
+.menu-item:hover {
+    color: white;
+    transition: color 0.2s;
+}
+
+.menu-item-home a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Search bar */
+#search-bar-container {
+    width: 70%;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background: #F8F7F5;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    overflow: hidden;
+}
+
+.search-icon {
+    color: #9C9C9B;
+    font-size: 16px;
+    width: 10%;
+    display: inline-block;
+    background-color: #F8F7F5;
+    border-radius: 10px 0 0 10px;
+}
+
+#input-box {
+    width: 70%;
+    border: none;
+    background: none;
+    background-color: #F8F7F5;
+    font-size: 16px;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+#search-button {
+    background: #93B1A6;
+    width: 20%;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+}
+
+#search-button:hover {
+    background-color: black;
+    transition: background-color 0.2s ease;
+}
+/* Content body */
+
+.single-item {
+    border: 2px solid grey;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.modal-content {
+    padding: 10px 20px;
+}
+
+.ingredient-list {
+    list-style: none;
+}
+
+.food-icons {
+    padding-right: 20px;
+    color: white;
+    transition: padding-right 0.3s ease;
+}
+
+.food-icons:hover {
+    padding-right: 30px;
+    color: white; 
+}
+
+.single-item-name {
+    color: white;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted lightgray;
+}
+
+#error-message {
+    display: none;
+    font-size: 20px;
+    border: 2px solid #4d0d4f4b;
+    border-radius: 5px;
+    padding: 10px;
+}
+#AboutUs{
+    text-align: center;
+   color: white;
+}
+.mainbody{
+    padding-left: 20%;
+}
+.visit:visited{
+    color: white;
+}
+#scaledIngredients{
+    color: white;
+}
+/*Media query starts*/
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+    }
+
+    nav {
+        display: grid;
+        justify-content: center;
+    }
+
+    .logo {
+        margin: auto;
+    }
+    .c-item{
+        height: 0px;
+    }
+    .c-img{
+        height: 0px;
+        object-fit: cover;
+    }
+    .menu {
+        margin-top: 30px;
+        line-height: 0;
+    }
+
+    .menu-list {
+        padding: 0px;
+    }
+
+    #search-bar-container {
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    #search-button {
+        width: 30%;
+    }
+
+    .modal-dialog {
+        padding: 20px 20px;    
+    }
+
+    .modal-body{
+        margin: auto;
+    }
+
+}

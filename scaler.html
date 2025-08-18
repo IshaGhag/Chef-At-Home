@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingredient Scaler</title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+      <!-- Bootstrap CSS v5.2.1 -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+        <!-- place navbar here -->
+        <div>
+          <nav class="custom-navbar">
+    
+            <img class="logo" src="logo.png" alt="Logo">
+            <div class="menu">
+              <ul class="menu-list">
+                  <li class="menu-item "><a class="visit" href="index.html">Home</a></li>
+                  <li class="menu-item"><a class="visit" href="scaler.html">Scaler</a></li>
+                  <li class="menu-item"><a class="visit" href="contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div> 
+      <hr style="color: transparent;">
+  </header>
+  <main class="mainbody">
+        <h1 style="color: white;">Ingredient Scaler</h1>
+        <p style="color: white;">Enter the ingredients below, with each ingredient on a new line. Specify quantities as fractions (e.g., 1/2 for half) or whole numbers.</p>
+        
+        <textarea id="ingredientsInput" rows="10" cols="50"></textarea>
+        <br>
+        <hr style="color: transparent;">
+        <label style="color: white; font-size: large;" for="numberOfPeople">Number of People:</label>
+        <input type="number" id="numberOfPeople" min="1" value="1">
+        <br>
+        <hr style="color: transparent;">
+        <button onclick="scaleIngredients()">Scale Ingredients</button>
+    
+        <h2 style="color: white;">Scaled Ingredients:</h2>
+        <div id="scaledIngredients"></div>
+    
+        <script>
+            function scaleIngredients() {
+                const ingredientsInput = document.getElementById('ingredientsInput').value;
+                const numberOfPeople = parseFloat(document.getElementById('numberOfPeople').value);
+    
+                if (!ingredientsInput || isNaN(numberOfPeople) || numberOfPeople <= 0) {
+                    alert('Please enter valid input values.');
+                    return;
+                }
+    
+                const ingredientLines = ingredientsInput.split('\n');
+                const scaledIngredients = [];
+    
+                for (const line of ingredientLines) {
+                    const parts = line.trim().split(' ');
+    
+                    if (parts.length < 2) {
+                        alert('Invalid ingredient format: ' + line);
+                        return;
+                    }
+    
+                    const quantity = parseFloat(parts[0]); // Parse the quantity as a float
+                    const unit = parts.slice(1).join(' ');
+    
+                    if (isNaN(quantity) || quantity <= 0) {
+                        alert('Invalid quantity: ' + parts[0]);
+                        return;
+                    }
+    
+                    scaledIngredients.push(`${(quantity * numberOfPeople).toFixed(2)} ${unit}`);
+                }
+    
+                const scaledIngredientsHtml = scaledIngredients.join('<br>');
+                document.getElementById('scaledIngredients').innerHTML = scaledIngredientsHtml;
+            }
+        </script>
+    </div>
+  </main>
+      <footer>
+        <!-- place footer here -->
+      </footer>
+      <!-- Bootstrap JavaScript Libraries -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+      </script>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+      </script>
+    </body>
+    
+    </html>
+

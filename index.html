@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef At Home</title>
+
+    <!-- Google font stylesheet-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Chef At Home</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <div class="container">
+        <!--navbar-->
+            <nav class="custom-navbar">
+    
+                <img class="logo" src="logo.png" alt="Logo">
+                <div class="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item "><a class="visit" href="index.html">Home</a></li>
+                        <li class="menu-item "><a class="visit" href="#AboutUs">About</a></li>
+                        <li class="menu-item"><a class="visit" href="scaler.html">Scaler</a></li>
+                        <li class="menu-item"><a class="visit" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav> 
+            <hr style="color: transparent;">
+            <!--Search Bar-->
+    
+            <div id="search-bar-container">
+    
+                <i class="fas fa-search search-icon"></i>
+                <input id="input-box" type="text" placeholder="Search for meal...">
+                <button id="search-button">Search</button>
+    
+            </div>
+        </header>
+        <main>
+            <section class="pt-5">
+               <div id="fooditem" class="row g-4"></div>
+               <p id="error-message" class="text-center text-secondary">No food available by this name &#128549;<br>Please try another</p>
+            </section>
+
+         <!-- Single Item -->
+             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div id="foodsDetails" class="modal-body"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container carousel mt-5">
+                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active c-item">
+                            <img style="height: 500px; width: 200px;" src="carousel1(2) (1).jpg" class="d-block w-100 img-fluid c-img" alt="Recipe 1">
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img style="height: 500px; width: 200px" src="carousel2.jpg" class="d-block w-100 img-fluid c-img" alt="Recipe 2">
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img style="height: 500px; width: 200px" src="carousel3.jpg" class="d-block w-100 img-fluid c-img" alt="Recipe 3">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#recipeCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+            <hr style="color: transparent;">
+                <center>
+                    <div id="AboutUs" class="container">
+                        <h1>About Us</h1>
+                        <p>Welcome to Chef At Home</p>
+                        <p>I'm Isha Sunil Ghag, the founder of Chef At Home. My passion for cooking began at a young age when I would spend hours in the kitchen with my grandmother, watching her turn simple ingredients into mouthwatering dishes. Those cherished moments sparked a culinary fire within me that has only grown stronger over the years.</p>
+                         <p>What We Offer:
+                            <ul>
+                                <li> Delicious Recipes: Our website features a wide range of tried-and-true recipes, from classic comfort foods to exotic international dishes. Each recipe is carefully crafted to ensure your cooking success.</li>
+                                <li>Cooking Tips and Techniques: We're here to help you master essential cooking techniques and provide tips that will elevate your dishes to the next level.</li>
+                                <li>Ingredient Spotlight: Dive into the world of ingredients! We'll introduce you to various ingredients, their benefits, and how to use them in your cooking.</li>
+                                <li>Community: Join our growing community of food enthusiasts. Share your culinary achievements, ask questions, and connect with fellow food lovers.</li>
+                        </ul>
+                    </p>
+                    </div>
+                </center>
+        </main>       
+    </div>
+       
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+</script>
+
+<!-- font awesome kit -->
+<script src="https://kit.fontawesome.com/638a39bdd7.js" crossorigin="anonymous"></script>
+
+<!-- main script -->
+<script src="script.js"></script>
+</body>
+
+</html>
