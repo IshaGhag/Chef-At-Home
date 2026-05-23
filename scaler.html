@@ -1,100 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ingredient Scaler</title>
-    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-      <!-- Bootstrap CSS v5.2.1 -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Scaler – Chef At Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-        <!-- place navbar here -->
-        <div>
-          <nav class="custom-navbar">
-    
-            <img class="logo" src="logo.png" alt="Logo">
-            <div class="menu">
-              <ul class="menu-list">
-                  <li class="menu-item "><a class="visit" href="index.html">Home</a></li>
-                  <li class="menu-item"><a class="visit" href="scaler.html">Scaler</a></li>
-                  <li class="menu-item"><a class="visit" href="contact.html">Contact Us</a></li>
-              </ul>
+ 
+<header>
+    <nav class="custom-navbar">
+        <div class="nav-inner">
+            <img class="logo" src="logo.png" alt="Chef At Home" onclick="location.href='index.html'">
+            <ul class="menu-list" id="main-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#categories-section">Categories</a></li>
+                <li><a href="index.html#fridge-section">My Fridge</a></li>
+                <li><a href="index.html#planner-section">Meal Planner</a></li>
+                <li><a href="scaler.html">Scaler</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+</header>
+ 
+<main class="scaler-page-wrap">
+    <div class="scaler-page">
+        <div class="scaler-hero">
+            <span class="scaler-emoji">⚖️</span>
+            <div>
+                <h1>Ingredient Scaler</h1>
+                <p>Enter your ingredients, pick how many people you're cooking for, and we'll scale everything perfectly — in Indian measurements!</p>
             </div>
-          </nav>
-        </div> 
-      <hr style="color: transparent;">
-  </header>
-  <main class="mainbody">
-        <h1 style="color: white;">Ingredient Scaler</h1>
-        <p style="color: white;">Enter the ingredients below, with each ingredient on a new line. Specify quantities as fractions (e.g., 1/2 for half) or whole numbers.</p>
-        
-        <textarea id="ingredientsInput" rows="10" cols="50"></textarea>
-        <br>
-        <hr style="color: transparent;">
-        <label style="color: white; font-size: large;" for="numberOfPeople">Number of People:</label>
-        <input type="number" id="numberOfPeople" min="1" value="1">
-        <br>
-        <hr style="color: transparent;">
-        <button onclick="scaleIngredients()">Scale Ingredients</button>
-    
-        <h2 style="color: white;">Scaled Ingredients:</h2>
-        <div id="scaledIngredients"></div>
-    
-        <script>
-            function scaleIngredients() {
-                const ingredientsInput = document.getElementById('ingredientsInput').value;
-                const numberOfPeople = parseFloat(document.getElementById('numberOfPeople').value);
-    
-                if (!ingredientsInput || isNaN(numberOfPeople) || numberOfPeople <= 0) {
-                    alert('Please enter valid input values.');
-                    return;
-                }
-    
-                const ingredientLines = ingredientsInput.split('\n');
-                const scaledIngredients = [];
-    
-                for (const line of ingredientLines) {
-                    const parts = line.trim().split(' ');
-    
-                    if (parts.length < 2) {
-                        alert('Invalid ingredient format: ' + line);
-                        return;
-                    }
-    
-                    const quantity = parseFloat(parts[0]); // Parse the quantity as a float
-                    const unit = parts.slice(1).join(' ');
-    
-                    if (isNaN(quantity) || quantity <= 0) {
-                        alert('Invalid quantity: ' + parts[0]);
-                        return;
-                    }
-    
-                    scaledIngredients.push(`${(quantity * numberOfPeople).toFixed(2)} ${unit}`);
-                }
-    
-                const scaledIngredientsHtml = scaledIngredients.join('<br>');
-                document.getElementById('scaledIngredients').innerHTML = scaledIngredientsHtml;
-            }
-        </script>
+        </div>
+ 
+        <div class="scaler-card">
+            <div class="scaler-unit-guide">
+                <h6>📏 Supported formats</h6>
+                <div class="unit-examples">
+                    <span>2 cups rice</span>
+                    <span>500 grams chicken</span>
+                    <span>1 tsp salt</span>
+                    <span>3 tbsp oil</span>
+                    <span>200 ml milk</span>
+                    <span>1/2 cup yoghurt</span>
+                    <span>4 onions</span>
+                </div>
+            </div>
+ 
+            <label class="scaler-label">Your Ingredients <span>(one per line)</span></label>
+            <textarea id="ingredientsInput" rows="10" placeholder="2 cups basmati rice&#10;500 grams chicken&#10;2 onions chopped&#10;1 tsp turmeric&#10;2 tbsp oil&#10;1/2 cup yoghurt&#10;200 ml water"></textarea>
+ 
+            <div class="scaler-controls">
+                <div class="scaler-control-group">
+                    <label for="numberOfPeople">Cooking for</label>
+                    <div class="scaler-number-row">
+                        <button onclick="changeServings(-1)" class="serving-btn">−</button>
+                        <input type="number" id="numberOfPeople" min="1" value="2">
+                        <button onclick="changeServings(1)" class="serving-btn">+</button>
+                        <span class="serving-label">people</span>
+                    </div>
+                </div>
+                <button onclick="scaleIngredients()" class="scale-btn">
+                    <i class="fas fa-balance-scale"></i> Scale Ingredients
+                </button>
+            </div>
+        </div>
+ 
+        <div class="scaler-result-wrap" id="scaler-result-section" style="display:none;">
+            <div class="scaler-result-header">
+                <h2>Scaled for <span id="result-servings"></span> people</h2>
+                <button onclick="copyResults()" class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+            <div class="scaler-result-list" id="scaledIngredients"></div>
+        </div>
     </div>
-  </main>
-      <footer>
-        <!-- place footer here -->
-      </footer>
-      <!-- Bootstrap JavaScript Libraries -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-      </script>
-    
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-      </script>
-    </body>
-    
-    </html>
-
+</main>
+ 
+<footer class="site-footer">
+    <p>Made with ❤️ by Isha Ghag &nbsp;|&nbsp; Chef At Home © 2024</p>
+</footer>
+ 
+<script>
+// Indian unit conversion map (oz/lb → grams/kg)
+const unitConversions = {
+    'oz': { factor: 28.35, to: 'grams' },
+    'lb': { factor: 453.6, to: 'grams' },
+    'lbs': { factor: 453.6, to: 'grams' },
+    'fl oz': { factor: 29.57, to: 'ml' },
+};
+ 
+// Friendly Indian display
+const indianUnits = ['grams', 'kg', 'ml', 'l', 'tsp', 'tbsp', 'cup', 'cups', 'pinch', 'handful'];
+ 
+function changeServings(delta) {
+    const input = document.getElementById('numberOfPeople');
+    const val = parseInt(input.value) + delta;
+    if (val >= 1) input.value = val;
+}
+ 
+function parseFraction(str) {
+    if (str.includes('/')) {
+        const parts = str.split('/');
+        return parseFloat(parts[0]) / parseFloat(parts[1]);
+    }
+    return parseFloat(str);
+}
+ 
+function formatNumber(n) {
+    if (Number.isInteger(n)) return n.toString();
+    // Convert to nice fractions for small numbers
+    const fracs = [[0.25,'¼'],[0.5,'½'],[0.75,'¾'],[0.33,'⅓'],[0.67,'⅔']];
+    const whole = Math.floor(n);
+    const dec = n - whole;
+    for (const [val, sym] of fracs) {
+        if (Math.abs(dec - val) < 0.05) {
+            return whole > 0 ? `${whole}${sym}` : sym;
+        }
+    }
+    return n.toFixed(1);
+}
+ 
+function convertToIndian(qty, unit) {
+    const unitLower = unit.toLowerCase().trim();
+    if (unitConversions[unitLower]) {
+        const conv = unitConversions[unitLower];
+        let newQty = qty * conv.factor;
+        let newUnit = conv.to;
+        // Convert grams to kg if large
+        if (newUnit === 'grams' && newQty >= 1000) {
+            newQty = newQty / 1000;
+            newUnit = 'kg';
+        }
+        if (newUnit === 'ml' && newQty >= 1000) {
+            newQty = newQty / 1000;
+            newUnit = 'litres';
+        }
+        return { qty: newQty, unit: newUnit };
+    }
+    // Already Indian — just clean up grams to kg if large
+    if ((unitLower === 'grams' || unitLower === 'gram' || unitLower === 'g') && qty >= 1000) {
+        return { qty: qty / 1000, unit: 'kg' };
+    }
+    if ((unitLower === 'ml') && qty >= 1000) {
+        return { qty: qty / 1000, unit: 'litres' };
+    }
+    return { qty, unit };
+}
+ 
+function scaleIngredients() {
+    const input = document.getElementById('ingredientsInput').value.trim();
+    const servings = parseFloat(document.getElementById('numberOfPeople').value);
+    if (!input || isNaN(servings) || servings <= 0) {
+        alert('Please enter valid ingredients and serving count.');
+        return;
+    }
+ 
+    const lines = input.split('\n').filter(l => l.trim());
+    const container = document.getElementById('scaledIngredients');
+    container.innerHTML = '';
+ 
+    for (const line of lines) {
+        const parts = line.trim().split(' ');
+        const qty = parseFraction(parts[0]);
+        const rest = parts.slice(1).join(' ');
+ 
+        const div = document.createElement('div');
+        div.className = 'scaler-result-item';
+ 
+        if (isNaN(qty)) {
+            // No number — just show as-is
+            div.innerHTML = `<span class="result-qty">—</span> <span class="result-ing">${line}</span>`;
+        } else {
+            const scaledQty = qty * servings;
+            // Check if second word is a unit
+            const unitWord = parts[1] || '';
+            const ingName = parts.slice(2).join(' ') || parts.slice(1).join(' ');
+            const converted = convertToIndian(scaledQty, unitWord);
+ 
+            div.innerHTML = `<span class="result-qty">${formatNumber(converted.qty)}</span> <span class="result-unit">${converted.unit}</span> <span class="result-ing">${ingName || unitWord}</span>`;
+        }
+ 
+        container.appendChild(div);
+    }
+ 
+    document.getElementById('result-servings').textContent = servings;
+    document.getElementById('scaler-result-section').style.display = 'block';
+    document.getElementById('scaler-result-section').scrollIntoView({ behavior: 'smooth' });
+}
+ 
+function copyResults() {
+    const items = document.querySelectorAll('.scaler-result-item');
+    const text = Array.from(items).map(i => i.textContent.trim()).join('\n');
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="fas fa-copy"></i> Copy', 2000);
+    });
+}
+ 
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('main-menu').classList.toggle('open');
+});
+</script>
+</body>
+</html>
